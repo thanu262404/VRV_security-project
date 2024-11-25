@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../services/authService';
+import '../styles/Register.css';
 
 // Component for user registration
 const Register = () => {
@@ -38,7 +39,7 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleRegister}>
+    <form onSubmit={handleRegister} className="register-form">
       <input 
         type="text" 
         name="username" 

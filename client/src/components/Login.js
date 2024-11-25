@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/authService';
+import '../styles/Login.css';
 
 // Component for user login
 const Login = () => {
@@ -31,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="login-form">
       <input 
         type="email" 
         name="email" 
