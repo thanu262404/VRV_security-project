@@ -24,8 +24,13 @@ const Login = () => {
     try {
       // Call the login service to send the credentials and receive a JWT
       await login(credentials);
-      // Redirect the user to the home page after successful login
-      navigate('/');
+      const currentUser = JSON.parse(localStorage.getItem('user'));
+      if(currentUser.roles.includes('Admin')) {
+        navigate('/admin');
+      }
+      else if(currentUser.roles.includes('User')) {
+        navigate('/user');
+      }
     } catch (error) {
       console.error('Login failed', error);
     }
