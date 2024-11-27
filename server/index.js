@@ -1,5 +1,8 @@
 require('dotenv').config();
+require('./config/passportConfig');
 const express = require('express');
+const passport = require('passport');
+const session = require('express-session');
 const cors = require('cors');
 const { connectDB, seedRoles } = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
@@ -10,6 +13,12 @@ connectDB();
 seedRoles();
 app.use(cors())
 app.use(express.json());
+app.use(session({ secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: true }));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 

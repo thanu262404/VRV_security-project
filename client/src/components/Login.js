@@ -36,6 +36,10 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    window.location.href = 'http://localhost:5000/api/auth/google';
+  };
+
   return (
     <form onSubmit={handleLogin} className="login-form">
       <input 
@@ -43,16 +47,18 @@ const Login = () => {
         name="email" 
         placeholder="Email" 
         onChange={handleChange} 
-        required 
       />
       <input 
         type="password" 
         name="password" 
         placeholder="Password" 
-        onChange={handleChange} 
-        required 
+        onChange={handleChange}
       />
-      <button type="submit">Login</button>
+      <button type="submit"> Login with Email </button>
+      <button onClick={handleGoogleLogin} className="google-login-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google logo" />
+        Login with Google
+      </button>
     </form>
   );
 };

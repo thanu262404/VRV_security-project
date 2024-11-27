@@ -9,11 +9,18 @@ const UserPage = () => {
 
   // Handle logout
   const handleLogout = () => {
+    const token = localStorage.getItem('token');
+    if(token) {
+      localStorage.removeItem('token');
+      navigate('/');
+    }
+    else {
     // Remove user data from localStorage
     localStorage.removeItem('user');
 
     // Redirect to HomePage
     navigate('/');
+    }
   };
 
   return (

@@ -2,6 +2,7 @@ const User = require('../models/User');
 const Role = require('../models/Role');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 // Register a new user
 exports.register = async (req, res) => {
@@ -43,7 +44,31 @@ exports.login = async (req, res) => {
   }
 };
 
+// OAuth2 (Google) login using Passport.js
+exports.googleOAuth = passport.authenticate('google', { scope: ['profile', 'email'] });
+
+// Google OAuth callback after authentication
+exports.googleOAuthCallback = passport.authenticate('google', { failureRedirect: '/' });
+
+// Callback handler after successful OAuth
+exports.oauthSuccessHandler = (req, res) => {
+  const { user } = req;
+  
+  // Generate JWT token
+  const token = jwt.sign(
+    { userId: user._id, roles: user.roles.map(role => role.name) },
+    process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  );
+
+    // Redirect the user to the frontend with the token included in the URL as a query parameter
+    const redirectUrl = `http://localhost:3000/oauth/callback?token=${token}`;
+    res.redirect(redirectUrl);
+};
+
+
 // Logout
 exports.logout = (req, res) => {
+  req.logout();  // Passport method to log the user out
   res.json({ message: 'Logout successful' });
 };
