@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = async () => {
-    window.location.href = 'http://localhost:5000/api/auth/google';
+    window.location.href = 'https://vrv-security-intern-assignment.onrender.com/api/auth/google';
   };
 
   return (

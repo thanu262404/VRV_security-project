@@ -2,7 +2,7 @@ import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
 // Define the base URL for the authentication-related API endpoints
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://vrv-security-intern-assignment.onrender.com/api/auth';
 
 // Register a new user by sending the user's details to the backend
 export const register = async (userData) => {
