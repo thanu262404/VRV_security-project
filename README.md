@@ -67,8 +67,7 @@ Installation and Setup
 
 ### Step-by-Step Setup
 
-1\. git clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.git
-    cd VRV-Security-Intern-Assignment
+1\. git clone [https://github.com/Manav2031/VRV-Security-Intern-Assignment.git](https://github.com/Manav2031/VRV-Security-Intern-Assignment.git) cd VRV-Security-Intern-Assignment
 
 2\. cd server
 
@@ -102,7 +101,7 @@ Run the frontend:
 
 npm start
 
-4\. Access the Application:
+4\. **Access the Application**:
 
 The backend will be running on http://localhost:5000/
 
