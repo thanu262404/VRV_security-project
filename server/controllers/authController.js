@@ -62,7 +62,7 @@ exports.oauthSuccessHandler = (req, res) => {
   );
 
     // Redirect the user to the frontend with the token included in the URL as a query parameter
-    const redirectUrl = `http://localhost:3000/oauth/callback?token=${token}`;
+    const redirectUrl = `https://vrv-security-intern-assignment.vercel.app/oauth/callback?token=${token}`;
     res.redirect(redirectUrl);
 };
 
