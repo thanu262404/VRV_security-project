@@ -71,7 +71,8 @@ Installation and Setup
     cd VRV-Security-Intern-Assignment
     
 2.  cd server
-    Install server dependencies:npm install
+    Install server dependencies:
+    npm install
     Create a .env file in the root of the server directory with the following variables:
     JWT_SECRET=your_jwt_secret
     GOOGLE_CLIENT_ID=your_google_client_id
@@ -103,16 +104,16 @@ API Endpoints
     
 *   **POST /api/auth/login**: Log in with email and password
     
-*   **GET /auth/google**: Initiate Google OAuth login
+*   **GET /api/auth/google**: Initiate Google OAuth login
     
-*   **GET /auth/google/callback**: Google OAuth callback handler
+*   **GET /api/auth/google/callback**: Google OAuth callback handler
     
 
 ### Role-Based Access Control:
 
-*   **GET /user**: Welcomes User with a welcome message (User only)
+*   **/user**: Welcomes User with a welcome message (User only)
     
-*   **GET /admin**: Welcomes Admin with a welcome message (Admin only)
+*   **/admin**: Welcomes Admin with a welcome message (Admin only)
     
 
 Google OAuth Configuration
