@@ -5,11 +5,13 @@ This project is a comprehensive implementation of **Authentication**, **Authoriz
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
 - [Installation and Setup](#installation-and-setup)
 - [API Endpoints](#api-endpoints)
 - [Google OAuth Configuration](#google-oauth-configuration)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -30,6 +32,13 @@ This project is a comprehensive implementation of **Authentication**, **Authoriz
 - **Frontend**: React.js, React Router for navigation
 - **Version Control**: Git and GitHub
 
+## Project Structure
+
+|-- /client # Frontend code (React) |-- /src |-- /components # React components |-- /pages # Different pages (Login, Admin, User) |-- App.js # Main App component |-- OAuthCallback.js # Handles Google OAuth callback |-- /server # Backend code (Express.js) |-- /config # Configuration files (DB, Passport) |-- /controllers # Controller functions (auth, user) |-- /models # Mongoose models (User, Role) |-- /routes # API routes (auth, users) |-- app.js # Main server file |-- server.js # Server setup and configuration |-- .env # Environment variables |-- package.json # Dependencies and scripts
+
+markdown
+Copy code
+
 ## Installation and Setup
 
 ### Prerequisites
@@ -42,78 +51,74 @@ This project is a comprehensive implementation of **Authentication**, **Authoriz
    ```bash
    git clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.git
    cd VRV-Security-Intern-Assignment
+Server Setup: Navigate to the server directory:
 
-2. **Server Setup**: Navigate to the server directory:
-
-```bash
+bash
+Copy code
 cd server
+Install server dependencies:
 
-3. **Install server dependencies**:
-
-```bash
+bash
+Copy code
 npm install
+Create a .env file in the root of the server directory with the following variables:
 
-4. **Create a .env file in the root of the server directory with the following variables**:
-
-```bash
+bash
+Copy code
 JWT_SECRET=your_jwt_secret
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 MONGO_URI=your_mongodb_uri
-SESSION_SECRET=your_session_secret
-PORT=your_port_number
+Run the backend server:
 
-5. **Run the backend server**:
-
-```bash
+bash
+Copy code
 npm start
+Client Setup: Open a new terminal, navigate to the client directory, and install dependencies:
 
-6. **Client Setup**: Open a new terminal, navigate to the client directory, and install dependencies:
-
-```bash
+bash
+Copy code
 cd client
 npm install
+Run the frontend:
 
-7. **Run the frontend**:
-
-```bash
+bash
+Copy code
 npm start
-
-8. **Access the Application**:
+Access the Application:
 
 The backend will be running on http://localhost:5000/
 The frontend will be running on http://localhost:3000/
-
-## API Endpoints
-1. Authentication Endpoints:
+API Endpoints
+Authentication Endpoints:
 POST /api/auth/register: Register a new user
 POST /api/auth/login: Log in with email and password
 GET /auth/google: Initiate Google OAuth login
 GET /auth/google/callback: Google OAuth callback handler
-2. Role-Based Access Control:
-GET /user: Will Welcome User with a message (User only)
-GET /admin: Will Welcome Admin with a message (Admin only)
-
-## Google OAuth Configuration
-1. Go to the Google Developers Console.
-2. Create a new project and enable the Google+ API and Google Identity API.
-3. Create OAuth credentials (Client ID and Client Secret).
-4. In your .env file, add the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.
-5. Ensure your callback URL matches this format:
-```bash
+Role-Based Access Control:
+GET /api/users/:id: Get user details (Admin only)
+GET /api/admin/dashboard: Access the admin dashboard (Admin only)
+Google OAuth Configuration
+Go to the Google Developers Console.
+Create a new project and enable the Google+ API and Google Identity API.
+Create OAuth credentials (Client ID and Client Secret).
+In your .env file, add the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.
+Ensure your callback URL matches this format:
+bash
+Copy code
 http://localhost:5000/auth/google/callback
-
-## Usage
-1. **User Registration**: Users can register via /register endpoint.
-2. **Google Login**: Users can log in using Google OAuth by visiting /auth/google and following the login prompts.
-3. **Access Admin Features**: Only users with the "Admin" role can access the /admin page.
-4. **Access User Features**: Only users with the "User" role can access the /user page.
-
-## Contributing
+Usage
+User Registration: Users can register via /register endpoint.
+Google Login: Users can log in using Google OAuth by visiting /auth/google and following the login prompts.
+Access Admin Features: Only users with the "Admin" role can access the /admin page.
+Contributing
 Contributions, issues, and feature requests are welcome!
-1. Fork this repository.
-2. Create a new branch (git checkout -b feature/your-feature-name).
-3. Make your changes.
-4. Commit your changes (git commit -m 'Add some feature').
-5. Push to the branch (git push origin feature/your-feature-name).
-6. Open a Pull Request.
+
+To contribute:
+
+Fork this repository.
+Create a new branch (git checkout -b feature/your-feature-name).
+Make your changes.
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature/your-feature-name).
+Open a Pull Request.
