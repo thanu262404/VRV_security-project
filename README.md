@@ -67,32 +67,46 @@ Installation and Setup
 
 ### Step-by-Step Setup
 
-1.  git clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.git
+1\. git clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.git
     cd VRV-Security-Intern-Assignment
-    
-2.  cd server
-    Install server dependencies:
-    npm install
-    Create a .env file in the root of the server directory with the following variables:
-    JWT_SECRET=your_jwt_secret
-    GOOGLE_CLIENT_ID=your_google_client_id
-    GOOGLE_CLIENT_SECRET=your_google_client_secret
-    MONGO_URI=your_mongodb_uri
-    SESSION_SECRET=your_session_secret
-    PORT=your_port_number
-    Run the backend server:
-    npm start
-    
-3.  cd client
-    npm install
-    Run the frontend:
-    npm start
-    
-4.  **Access the Application**:
-    
-    *   The backend will be running on http://localhost:5000/
-        
-    *   The frontend will be running on http://localhost:3000/
+
+2\. cd server
+
+Install server dependencies:
+
+npm install
+
+Create a .env file in the root of the server directory with the following variables:
+
+JWT\_SECRET=your\_jwt\_secret
+
+GOOGLE\_CLIENT\_ID=your\_google\_client\_id
+
+GOOGLE\_CLIENT\_SECRET=your\_google\_client\_secret
+
+MONGO\_URI=your\_mongodb\_uri
+
+SESSION\_SECRET=your\_session\_secret
+
+PORT=your\_port\_number
+
+Run the backend server:
+
+npm start
+
+3\. cd client
+
+npm install
+
+Run the frontend:
+
+npm start
+
+4\. Access the Application:
+
+The backend will be running on http://localhost:5000/
+
+The frontend will be running on http://localhost:3000/
         
 
 API Endpoints
