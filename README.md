@@ -10,8 +10,6 @@ Table of Contents
     
 *   [Technologies Used](#technologies-used)
     
-*   [Project Structure](#project-structure)
-    
 *   [Installation and Setup](#installation-and-setup)
     
 *   [API Endpoints](#api-endpoints)
@@ -21,8 +19,6 @@ Table of Contents
 *   [Usage](#usage)
     
 *   [Contributing](#contributing)
-    
-*   [License](#license)
     
 
 Features
@@ -57,12 +53,7 @@ Technologies Used
 *   **Frontend**: React.js, React Router for navigation
     
 *   **Version Control**: Git and GitHub
-    
-
-Project Structure
------------------
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   bashCopy code|-- /client                  # Frontend code (React)      |-- /src          |-- /components      # React components          |-- /pages           # Different pages (Login, Admin, User)          |-- App.js           # Main App component          |-- OAuthCallback.js # Handles Google OAuth callback  |-- /server                   # Backend code (Express.js)      |-- /config               # Configuration files (DB, Passport)      |-- /controllers          # Controller functions (auth, user)      |-- /models               # Mongoose models (User, Role)      |-- /routes               # API routes (auth, users)      |-- app.js                # Main server file      |-- server.js             # Server setup and configuration  |-- .env                      # Environment variables  |-- package.json              # Dependencies and scripts   `
+  
 
 Installation and Setup
 ----------------------
@@ -76,11 +67,25 @@ Installation and Setup
 
 ### Step-by-Step Setup
 
-1.  bashCopy codegit clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.gitcd VRV-Security-Intern-Assignment
+1.  git clone https://github.com/Manav2031/VRV-Security-Intern-Assignment.git
+    cd VRV-Security-Intern-Assignment
     
-2.  bashCopy codecd serverInstall server dependencies:bashCopy codenpm installCreate a .env file in the root of the server directory with the following variables:bashCopy codeJWT\_SECRET=your\_jwt\_secretGOOGLE\_CLIENT\_ID=your\_google\_client\_idGOOGLE\_CLIENT\_SECRET=your\_google\_client\_secretMONGO\_URI=your\_mongodb\_uriRun the backend server:bashCopy codenpm start
+2.  cd server
+    Install server dependencies:npm install
+    Create a .env file in the root of the server directory with the following variables:
+    JWT_SECRET=your_jwt_secret
+    GOOGLE_CLIENT_ID=your_google_client_id
+    GOOGLE_CLIENT_SECRET=your_google_client_secret
+    MONGO_URI=your_mongodb_uri
+    SESSION_SECRET=your_session_secret
+    PORT=your_port_number
+    Run the backend server:
+    npm start
     
-3.  bashCopy codecd clientnpm installRun the frontend:bashCopy codenpm start
+3.  cd client
+    npm install
+    Run the frontend:
+    npm start
     
 4.  **Access the Application**:
     
@@ -105,9 +110,9 @@ API Endpoints
 
 ### Role-Based Access Control:
 
-*   **GET /api/users/:id**: Get user details (Admin only)
+*   **GET /user**: Welcomes User with a welcome message (User only)
     
-*   **GET /api/admin/dashboard**: Access the admin dashboard (Admin only)
+*   **GET /admin**: Welcomes Admin with a welcome message (Admin only)
     
 
 Google OAuth Configuration
@@ -119,9 +124,9 @@ Google OAuth Configuration
     
 3.  Create OAuth credentials (Client ID and Client Secret).
     
-4.  In your .env file, add the GOOGLE\_CLIENT\_ID and GOOGLE\_CLIENT\_SECRET.
+4.  In your .env file, add the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET.
     
-5.  bashCopy codehttp://localhost:5000/auth/google/callback
+5.  http://localhost:5000/auth/google/callback
     
 
 Usage
@@ -132,6 +137,8 @@ Usage
 *   **Google Login**: Users can log in using Google OAuth by visiting /auth/google and following the login prompts.
     
 *   **Access Admin Features**: Only users with the "Admin" role can access the /admin page.
+
+*   **Access User Features**: Only users with the "User" role can access the /user page.
     
 
 Contributing
@@ -152,9 +159,3 @@ To contribute:
 5.  Push to the branch (git push origin feature/your-feature-name).
     
 6.  Open a Pull Request.
-    
-
-License
--------
-
-This project is licensed under the MIT License. See the LICENSE file for details.
